@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <title>CRUD</title>
+    <style>
+    body{
+    background-color:skyblue;
+    display: block;
+    align-items:center;
+    margin:12px;
+    padding:5px;
+    
+    
+   
+  
+    }
+    p{
+      font-family: Arial;
+      font-size: 26px;
+      
+    }
+    button{
+      font-family: Sans-Serif;
+      text-decoration: none;
+      font-size: 24px;
+      color:white;
+      t
+    }
+    a{
+      text-decoration: none;
+    }
+    .delete{
+      background-color: red;
+      border: black 1px solid;
+      color:white;
+      
+      
+    }
+    .update{
+      background-color: green;
+      border: black 1px solid;
+      color:white;
+    }
+    .container {
+      border:black 3px solid;
+      padding:7px;
+      margin-top:2px;
+      margin-bottom:3px;
+      
+    }
+    .formu{
+    align-items:center;
+    text-align:center;
+    }
+    #butao{
+    background-color:blue;
+    color:white;
+    font-family:Sans-Serif;
+    font-size:24px;
+    padding:10px;
+    
+    }
+   
+    
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     
+  </head>
+  <body>
+    <section>
+      
+    
+    <form action="" method="POST" accept-charset="utf-8" class="formu">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" id="butao">Add</button>
+    </form>
+   
+    {% for tarefas in objectos %}
+   
+      
+    <nav class='container'>
+    <p>{{tarefas.tarefa}}
+    <a href="{% url 'delete' tarefas.id %}"><button type="submit" class="delete">Delete</button></a>
+    <a href="{% url 'update' tarefas.id %}"><button type="submit" class="update">Update</button></a>
+    </p>
+    </nav>
+    {% endfor %}
+    </section>
+   
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
